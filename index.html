@@ -53,7 +53,6 @@
         return; // No realiza la solicitud si el campo está vacío
       }
 
-      // Reemplaza la URL de la API con la correcta
       const apiUrl = "http://localhost/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&codigo=" + codigoMascota;
 
       // Realiza la solicitud a la API utilizando fetch
@@ -68,7 +67,9 @@
           // Verifica si la respuesta de la API es verdadera
           if (data.status === 1) {
             // Redirige a la página deseada (reemplaza "index1.html" con tu ruta)
-            redirigirConCodigoMascota(codigoMascota);
+            console.log(data.info[0].mascota.nmasc);
+            redirigirConCodigoMascota(codigoMascota, data.info[0].mascota.nmasc, data.info[0].mascota.nacim, data.info[0].mascota.depto,
+             data.info[0].mascota.muni, data.info[0].mascota.direccion, data.info[0].mascota.telefono, data.info[0].mascota.mail);
           } else {
             alert("El código de la mascota no fue encontrado.");
           }
@@ -76,19 +77,15 @@
         .catch(error => {
           console.error("Error al obtener datos", error);
         });
-      function redirigirConCodigoMascota(codigoMascota) {
-        // Construye la URL de la otra página con el código de la mascota como parámetro
-        const url = `index1.html?codigoMascota=${encodeURIComponent(codigoMascota)}`;
-        const nombre = "nombremascota"; // Aquí deberías obtener el nombre de la mascota
-        const fechaNacimiento = "nacim"; // Aquí deberías obtener la fecha de nacimiento
-        const departamento = "departamento"; // Aquí deberías obtener el departamento
-        const municipio = "municipio";
-        const Email = "mail";
-        const Contacto = "telefono";
+    }
 
-        // Redirige a la otra página
-        window.location.href = url;
-      }
+    function redirigirConCodigoMascota(codigoMascota, nombreMascota, fechanacimiento, Departamento, Municipio, direcciones, tel, mails) {
+      // Construye la URL de la otra página con el código de la mascota como parámetro
+      const url = `index1.html?codigoMascota=${encodeURIComponent(codigoMascota)}&nombreMascota=${encodeURIComponent(nombreMascota)}&fechanacimiento=${encodeURIComponent(fechanacimiento)}&Departamento=${encodeURIComponent(Departamento)}
+      &Municipio=${encodeURIComponent(Municipio)}&direcciones=${encodeURIComponent(direcciones)}&tel=${encodeURIComponent(tel)}&mails=${encodeURIComponent(mails)}`;
+
+      // Redirige a la otra página
+      window.location.href = url;
     }
   </script>
 </body>

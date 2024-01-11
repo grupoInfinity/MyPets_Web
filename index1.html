@@ -50,7 +50,7 @@
           </div>
           <div class="dog-manythings__stats">
             <p>Municipio</p>
-            <h5 id= "Mun">.</h5>
+            <h5 id="Mun">.</h5>
           </div>
           <div class="dog-manythings__stats">
             <p>Dirección</p>
@@ -58,8 +58,12 @@
           </div>
           <div class="dog-manythings__more">
             <h3>Mas información</h3>
-            <p> <strong>Contacto </strong> <h5 id="Contc">.</h5></p>
-            <p> <strong>Email </strong> <h5 id="Ema">.</h5></p>
+            <p> <strong>Contacto </strong>
+            <h5 id="Contc">.</h5>
+            </p>
+            <p> <strong>Email </strong>
+            <h5 id="Ema">.</h5>
+            </p>
 
             <div class="dog-manythings__more">
               <h3>Registro de vacunas</h3>
@@ -80,8 +84,8 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td>.</td>
-                      <td>.</td>
+                      <td id="vac">.</td>
+                      <td id="fechacoloc">.</td>
                     </tr>
                   </tbody>
                 </table>
@@ -100,13 +104,34 @@
             if (!results[2]) return "";
             return decodeURIComponent(results[2].replace(/\+/g, " "));
           }
-      
-          // Obtén el código de la mascota de los parámetros de la URL
-          const codigoMascota = getParameterByName("codigoMascota");
-      
+
+          // Obtén los datos de la URL
+          const nombreMascota = getParameterByName("nombreMascota");
+          const codigoMascota = getParameterByName("codigoMascota")
+          const fechanacimiento = getParameterByName("fechanacimiento")
+          const Departamento = getParameterByName("Departamento")
+          const Municipio = getParameterByName("Municipio")
+          const direcciones = getParameterByName("direcciones")
+          const tel = getParameterByName("tel")
+          const mails = getParameterByName("mails")
+
+
+          console.log("Código de la mascota:", codigoMascota);
+          console.log("Nombre de la mascota:", nombreMascota);
+
           // Rellena los elementos con el código de la mascota
           document.getElementById("cod").innerText = codigoMascota;
+          document.getElementById("Nom").innerText = nombreMascota;
+          document.getElementById("Fech").innerText = fechanacimiento;
+          document.getElementById("Dep").innerText = Departamento;
+          document.getElementById("Mun").innerText = Municipio;
+          document.getElementById("Direc").innerText = direcciones;
+          document.getElementById("Contc").innerText = tel;
+          document.getElementById("Ema").innerText = mails;
           // Agrega más líneas para otros elementos según sea necesario
-        </script> 
+        </script>
+
+
 </body>
+
 </html>
