@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MyPets</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div class="area">
+    <header>
+      <div class="Encabezado">
+        <h1><span class="key">M</span>
+          <span class="key">Y</span>
+          <span class="key">P</span>
+          <span class="key">E</span>
+          <span class="key">T</span>
+          <span class="key">S</span>
+        </h1>
+      </div>
+    </header>
+  </div>
+
+  <div id="cover">
+    <form method="get" action="">
+      <div class="tb">
+        <div class="td"><input id="texto" type="text" placeholder="Escribe el código de la mascota" required></div>
+        <div class="td" id="s-cover">
+          <button type="button" id="Boton1" onclick="obtenerDatosYRedirigir()">
+            <div id="s-circle"></div>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="wrap">
+    <button class="QR"> <img src="./QRIMG.png" class="img" /></button>
+  </div>
+
+  <script>
+    function obtenerDatosYRedirigir() {
+      // Obtiene el valor del input con id="texto"
+      const codigoMascota = document.getElementById("texto").value;
+
+      // Verifica si el campo de texto está vacío
+      if (codigoMascota.trim() === "") {
+        alert("Por favor, ingresa el código de la mascota antes de continuar.");
+        return; // No realiza la solicitud si el campo está vacío
+      }
+
+      // Reemplaza la URL de la API con la correcta
+      const apiUrl = "http://localhost/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&codigo=" + codigoMascota;
+
+      // Realiza la solicitud a la API utilizando fetch
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`Error en la solicitud: ${response.statusText}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          // Verifica si la respuesta de la API es verdadera
+          if (data.status === 1) {
+            // Redirige a la página deseada (reemplaza "index1.html" con tu ruta)
+            redirigirConCodigoMascota(codigoMascota);
+          } else {
+            alert("El código de la mascota no fue encontrado.");
+          }
+        })
+        .catch(error => {
+          console.error("Error al obtener datos", error);
+        });
+      function redirigirConCodigoMascota(codigoMascota) {
+        // Construye la URL de la otra página con el código de la mascota como parámetro
+        const url = `index1.html?codigoMascota=${encodeURIComponent(codigoMascota)}`;
+        const nombre = "nombremascota"; // Aquí deberías obtener el nombre de la mascota
+        const fechaNacimiento = "nacim"; // Aquí deberías obtener la fecha de nacimiento
+        const departamento = "departamento"; // Aquí deberías obtener el departamento
+        const municipio = "municipio";
+        const Email = "mail";
+        const Contacto = "telefono";
+
+        // Redirige a la otra página
+        window.location.href = url;
+      }
+    }
+  </script>
+</body>
+
+</html>

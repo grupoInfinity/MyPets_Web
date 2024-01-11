@@ -1,0 +1,385 @@
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+body {
+  background: linear-gradient(-45deg, #35577B, #1F77B2, #1984B7, #2996BD);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  height: 100vh;
+  font-family: 'Exo', sans-serif;
+  margin: 0;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.key {
+  font-size: 4vw;
+  display: inline-block;
+  letter-spacing: 0vw;
+  transition: transform 0.2s;
+}
+
+@keyframes pressDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+  
+  
+  @keyframes pressDown1 {
+    30%,
+    40%,
+    100% {
+      transform: translateY(0);
+    }
+    35% {
+      transform: translateY(10px);
+    }
+  }
+  
+  @keyframes pressDown2 {
+    70%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(10px);
+    }
+  }
+  
+  @keyframes pressDown3 {
+    30%,
+    40%,
+    100% {
+      transform: translateY(0);
+    }
+    35% {
+      transform: translateY(10px);
+    }
+  }
+  
+  @keyframes pressDown4 {
+    40%,
+    50%,
+    100% {
+      transform: translateY(0);
+    }
+    45% {
+      transform: translateY(10px);
+    }
+  }
+  
+  @keyframes pressDown5 {
+    20%,
+    30%,
+    100% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(10px);
+    }
+  }
+  
+  @keyframes pressDown6 {
+    60%,
+    70%,
+    100% {
+      transform: translateY(0);
+    }
+    65% {
+      transform: translateY(10px);
+    }
+  }
+  
+  @keyframes pressDown7 {
+    10%,
+    20%,
+    100% {
+      transform: translateY(0);
+    }
+    15% {
+      transform: translateY(10px);
+    }
+  }
+  
+  @keyframes pressDown8 {
+    35%,
+    45%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(10px);
+    }
+  }
+  
+  .key:nth-child(1) {
+    animation: pressDown 2s infinite;
+    color: #fff;
+  }
+  
+  .key:nth-child(2) {
+    animation: pressDown 3s infinite;
+    color: #fff;
+  }
+  
+  .key:nth-child(3) {
+    animation: pressDown 4s infinite;
+    color: #fff;
+  }
+  
+  .key:nth-child(4) {
+    animation: pressDown 2.5s infinite;
+    color: #fff;
+  }
+  
+  .key:nth-child(5) {
+    animation: pressDown 2.5s infinite;
+    color: #fff;
+  }
+  
+  .key:nth-child(6) {
+    animation: pressDown 3.5s infinite;
+    color: #fff;
+  }
+  
+  .img {
+    height: 380%;
+    width: 380%;
+  }
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos generales para todos los dispositivos */
+body {
+  font-family: 'Exo', sans-serif;
+}
+
+/* Estilos para teléfonos móviles */
+@media only screen and (max-width: 375px) {
+  .wrap {
+    width: 100%;
+    position: absolute;
+  }
+
+  .QR {
+    transform: translateX(-50%);
+    position: absolute;
+    left: 20%;
+    top: 10%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .wrap {
+    width: 25%;
+  }
+
+  .QR {
+    left: 70%;
+  }
+}
+
+/* Estilos para monitores de 27 pulgadas */
+@media only screen and (min-width: 1600px) {
+  .wrap {
+    width: 20%;
+  }
+
+  .QR {
+    left: 80%;
+  }
+}
+
+header {
+  text-align: left;
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  background-attachment: fixed;
+  position: relative;
+  overflow: hidden;
+  top: 5px;
+  right: -15px;
+}
+
+.wrap {
+  position: absolute;
+  top: 28%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+
+.QR {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.tb {
+  display: table;
+  width: 100%;
+}
+
+.td {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+input,
+button {
+  color: #000000;
+  font-family: Nunito;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+#cover {
+  position: absolute;
+  top: 45%;
+  right: 45%;
+  width: 50%;
+  height: 10%;
+  padding: -5px;
+  margin: 0px auto 0 auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  box-shadow: 0 10px 20px #063046, 0 0 0 20px #ffffffeb;
+  transform: scale(0.6);
+}
+
+form {
+  height: 10px;
+}
+
+input[type="text"] {
+  width: 50%;
+  height: 50%;
+  font-size: 20px;
+  line-height: 1;
+  position :absolute;
+  top: 30%;
+  left: 2%;
+  font-family: 'Exo', sans-serif;
+}
+
+input[type="text"]::placeholder {
+  color: black;
+}
+
+#s-cover {
+  width: 1px;
+  padding-left: 35px;
+}
+
+button {
+  position: relative;
+  display: block;
+  width: 84px;
+  height: 96px;
+  cursor: pointer;
+}
+
+#s-circle {
+  position: absolute;
+  top: -4px;
+  left: 150%;
+  width: 45px;
+  height: 45px;
+  border-width: 15px;
+  border: 10px solid #000000;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: 0.5s ease all;
+}
+
+button span {
+  position: absolute;
+  top: 40px;
+  left: 150px;
+  display: block;
+  width: 45px;
+  height: 15px;
+  background-color: transparent;
+  border-radius: 10px;
+  transform: rotateZ(52deg);
+  transition: 0.5s ease all;
+}
+
+button span:before,
+button span:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 45px;
+  height: 15px;
+  background-color: #000000;
+  border-radius: 10px;
+  transform: rotateZ(0);
+  transition: 0.5s ease all;
+}
+
+#s-cover:hover #s-circle {
+  top: 25px;
+  position: absolute;
+  left: 125px;
+  width: 67px;
+  height: 15px;
+  border-width: 0;
+  background-color: #000000;
+  border-radius: 20px;
+}
+
+#s-cover:hover span {
+  top: 33px;
+  position: absolute;
+  left: 190px;
+  width: 25px;
+  margin-top: -9px;
+  transform: rotateZ(0);
+}
+
+#s-cover:hover button span:before {
+  bottom: 11px;
+  transform: rotateZ(52deg);
+}
+
+#s-cover:hover button span:after {
+  bottom: -11px;
+  transform: rotateZ(-52deg);
+}
+#s-cover:hover button span:before,
+#s-cover:hover button span:after {
+  right: -6px;
+  width: 40px;
+  background-color: #000000;
+}

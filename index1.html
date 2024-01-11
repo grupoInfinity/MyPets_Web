@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>MyPets</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,500,500i,700|Barriecito" rel="stylesheet">
+  <link rel="stylesheet" href="./style1.css">
+
+</head>
+
+<body>
+
+  <main>
+    <section>
+      <nav>
+        <div class="logo">
+          <div class="text">MyPets</div>
+        </div>
+        </div>
+        </div>
+      </nav>
+      <div class="dog-info">
+        <section class="dog-name">
+          <div class="dog-name__info">
+            <h1 id="cod">.</h1>
+          </div>
+        </section>
+        <section class="dog-gallery">
+          <input class="dog-gallery__input" id="gallery-image-1" type="radio" value="1" name="dog-image"
+            checked="checked" />
+          <div class="dog-gallery__images"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/malamute1.jpg"
+              alt="Dog Image" /><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/malamute2.jpg"
+              alt="Dog Image" /><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/malamute3.jpg"
+              alt="Dog Image" /><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/malamute4.jpg"
+              alt="Dog Image" /></div>
+        </section>
+        <section class="dog-manythings">
+          <div class="dog-manythings__stats">
+            <p>Nombre </p>
+            <h5 id="Nom"> .</h5>
+          </div>
+          <div class="dog-manythings__stats">
+            <p>Fecha de nacimiento </p>
+            <h5 id="Fech">.</h5>
+          </div>
+          <div class="dog-manythings__stats">
+            <p>Departamento</p>
+            <h5 id="Dep">.</h5>
+          </div>
+          <div class="dog-manythings__stats">
+            <p>Municipio</p>
+            <h5 id= "Mun">.</h5>
+          </div>
+          <div class="dog-manythings__stats">
+            <p>Dirección</p>
+            <h5 id="Direc">.</h5>
+          </div>
+          <div class="dog-manythings__more">
+            <h3>Mas información</h3>
+            <p> <strong>Contacto </strong> <h5 id="Contc">.</h5></p>
+            <p> <strong>Email </strong> <h5 id="Ema">.</h5></p>
+
+            <div class="dog-manythings__more">
+              <h3>Registro de vacunas</h3>
+            </div>
+
+            <div class="dog-manythings__more">
+              <h3>
+                <table class="container">
+                  <thead>
+                    <tr>
+                      <th>
+                        <h1>Vacunas</h1>
+                      </th>
+                      <th>
+                        <h1>Fecha colocada</h1>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>.</td>
+                      <td>.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </h3>
+            </div>
+        </section>
+
+        <script>
+          // Función para obtener parámetros de la URL por nombre
+          function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+              results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return "";
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+          }
+      
+          // Obtén el código de la mascota de los parámetros de la URL
+          const codigoMascota = getParameterByName("codigoMascota");
+      
+          // Rellena los elementos con el código de la mascota
+          document.getElementById("cod").innerText = codigoMascota;
+          // Agrega más líneas para otros elementos según sea necesario
+        </script> 
+</body>
+</html>
