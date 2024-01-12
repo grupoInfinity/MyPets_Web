@@ -24,7 +24,8 @@
           </div>
         </section>
         <section class="dog-gallery">
-          <input class="dog-gallery__input" id="gallery-image-1" type="radio" value="1" name="dog-image" checked="checked" />
+          <input class="dog-gallery__input" id="gallery-image-1" type="radio" value="1" name="dog-image"
+            checked="checked" />
           <div class="dog-gallery__images">
             <img src="" alt="Dog Image" id="dog-image" />
           </div>
@@ -53,10 +54,10 @@
           <div class="dog-manythings__more">
             <h3>Más información</h3>
             <p> <strong>Contacto </strong>
-              <h5 id="Contc">.</h5>
+            <h5 id="Contc">.</h5>
             </p>
             <p> <strong>Email </strong>
-              <h5 id="Ema">.</h5>
+            <h5 id="Ema">.</h5>
             </p>
 
             <div class="dog-manythings__more">
@@ -78,7 +79,7 @@
                   </thead>
                   <tbody>
                     <tr>
-                     
+
                     </tr>
                   </tbody>
                 </table>
@@ -158,29 +159,16 @@
                   }
 
                   // Verifica si la respuesta contiene la URL de la imagen
-                  if (data.info[0].mascota.foto) {
-                    // Realiza una solicitud para obtener la imagen en formato base64
-                    return fetch(data.info[0].mascota.foto);
-                  } else {
-                    throw new Error("La respuesta de la API no contiene la URL de la imagen.");
-                  }
+                  const imagenBase64 = data.info[0].mascota.foto;
+
+                  // Obtén la referencia a la imagen en tu página
+                  const dogImage = document.getElementById("dog-image");
+
+                  // Establece el atributo src con la imagen codificada en base64
+                  dogImage.src = `data:image/png;base64, ${imagenBase64}`;
                 } else {
-                  throw new Error("Error al obtener los datos de la mascota.");
+                  alert("Error al obtener los datos de la mascota.");
                 }
-              })
-              .then(response => {
-                if (!response.ok) {
-                  throw new Error(`Error al cargar la imagen: ${response.statusText}`);
-                }
-                return response.blob();
-              })
-              .then(blob => {
-                // Convierte el blob en una URL de datos
-                return URL.createObjectURL(blob);
-              })
-              .then(imageUrl => {
-                // Asigna la URL de la imagen al atributo src de la etiqueta img
-                document.getElementById("dog-image").src = imageUrl;
               })
               .catch(error => {
                 console.error("Error al obtener datos", error);
