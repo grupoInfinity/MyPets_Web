@@ -148,23 +148,22 @@
 
                   if (typeof data.info[0].vacuna === "object" && data.info[0].vacuna !== null) {
                     // Accede a las propiedades del objeto 'vacuna'
-                  console.log(data.info[0].vacuna);
-                  data.info[0].vacuna.forEach(vacuna => {
-                      const newRow = document.createElement("tr");
+                    const newRow = document.createElement("tr");
 
-                      const vacunaCell = document.createElement("nombrevacuna");
-                      vacunaCell.textContent = vacuna.nombrevacuna; // Ajusta esto según la estructura de tus datos
-                      newRow.appendChild(vacunaCell);
+                    const vacunaCell = document.createElement("td");
+                    vacunaCell.textContent = data.info[0].vacuna[0].nombrevacuna; // Ajusta esto según la estructura de tus datos
+                    newRow.appendChild(vacunaCell);
 
-                      const fechaColocacionCell = document.createElement("fecha_creacion");
-                      fechaColocacionCell.textContent = vacuna.fecha_creacion; // Ajusta esto según la estructura de tus datos
-                      newRow.appendChild(fechaColocacionCell);
+                    const fechaColocacionCell = document.createElement("td");
+                    fechaColocacionCell.textContent = data.info[0].vacuna[0].fecha_creacion; // Ajusta esto según la estructura de tus datos
+                    newRow.appendChild(fechaColocacionCell);
 
-                      // Agrega la nueva fila al cuerpo de la tabla
-                      vacunaTableBody.appendChild(newRow);
-                    });
-                  } else {
-                    console.error("El campo 'vacuna' no es un objeto en la respuesta de la API o es nulo.");
+                    // Agrega la nueva fila al cuerpo de la tabla
+                    const vacunaTableBody = document.querySelector('container');
+                    vacunaTableBody.appendChild(newRow);
+                  }
+                  else {
+                    console.error("El campo 'vacuna' no es un array en la respuesta de la API.");
                   }
                   // Verifica si vacuna es un array antes de intentar iterar sobre él
                   /*if (Array.isArray(data.info[0].vacuna)) {
