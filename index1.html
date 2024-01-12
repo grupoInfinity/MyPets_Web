@@ -6,7 +6,6 @@
   <title>MyPets</title>
   <link href="https://fonts.googleapis.com/css?family=Poppins:300,300i,500,500i,700|Barriecito" rel="stylesheet">
   <link rel="stylesheet" href="./style1.css">
-
 </head>
 
 <body>
@@ -17,8 +16,6 @@
         <div class="logo">
           <div class="text">MyPets</div>
         </div>
-        </div>
-        </div>
       </nav>
       <div class="dog-info">
         <section class="dog-name">
@@ -27,13 +24,10 @@
           </div>
         </section>
         <section class="dog-gallery">
-          <input class="dog-gallery__input" id="gallery-image-1" type="radio" value="1" name="dog-image"
-            checked="checked" />
-          <div class="dog-gallery__images"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/malamute1.jpg"
-              alt="Dog Image" /><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/malamute2.jpg"
-              alt="Dog Image" /><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/malamute3.jpg"
-              alt="Dog Image" /><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/malamute4.jpg"
-              alt="Dog Image" /></div>
+          <input class="dog-gallery__input" id="gallery-image-1" type="radio" value="1" name="dog-image" checked="checked" />
+          <div class="dog-gallery__images">
+            <img src="" alt="Dog Image" id="dog-image" />
+          </div>
         </section>
         <section class="dog-manythings">
           <div class="dog-manythings__stats">
@@ -57,12 +51,12 @@
             <h5 id="Direc">.</h5>
           </div>
           <div class="dog-manythings__more">
-            <h3>Mas información</h3>
+            <h3>Más información</h3>
             <p> <strong>Contacto </strong>
-            <h5 id="Contc">.</h5>
+              <h5 id="Contc">.</h5>
             </p>
             <p> <strong>Email </strong>
-            <h5 id="Ema">.</h5>
+              <h5 id="Ema">.</h5>
             </p>
 
             <div class="dog-manythings__more">
@@ -84,15 +78,14 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <td id="vac">.</td>
-                      <td id="fechacoloc">.</td>
+                     
                     </tr>
                   </tbody>
                 </table>
               </h3>
             </div>
+          </div>
         </section>
-
 
         <script>
           // Función para obtener parámetros de la URL por nombre
@@ -112,7 +105,8 @@
           // Verifica si se proporcionó el código de la mascota en la URL
           if (codigoMascota) {
             // Realiza una solicitud a tu API para obtener los datos de la mascota
-            const apiUrl = "http://localhost/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&codigo=" + codigoMascota;
+            const apiUrl =
+              "http://localhost/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&codigo=" + codigoMascota;
 
             fetch(apiUrl)
               .then(response => {
@@ -144,9 +138,7 @@
                   document.getElementById("Ema").innerText = mails;
 
                   // Obtén la referencia al cuerpo de la tabla
-                  const vacuna = document.getElementById("vacuna");
-
-                  var tbody = document.querySelector('.container tbody');
+                  const tbody = document.querySelector('.container tbody');
 
                   if (data.info[0].vacuna && (Array.isArray(data.info[0].vacuna) || typeof data.info[0].vacuna === "object")) {
                     // Si es un objeto, conviértelo en un array
@@ -165,51 +157,30 @@
                     console.error("El campo 'vacuna' no es un array u objeto en la respuesta de la API.");
                   }
 
-                  /*if (typeof data.info[0].vacuna === "object" && data.info[0].vacuna !== null) {
-                    console.log(data.info[0].vacuna.nombrevacuna);
-                    // Accede a las propiedades del objeto 'vacuna'
-                    /*const newRow = document.createElement("tr");
-
-                    const vacunaCell = document.createElement("td");
-                    vacunaCell.textContent = data.info[0].vacuna[0].nombrevacuna; // Ajusta esto según la estructura de tus datos
-                    newRow.appendChild(vacunaCell);
-
-                    const fechaColocacionCell = document.createElement("td");
-                    fechaColocacionCell.textContent = data.info[0].vacuna[0].fecha_creacion; // Ajusta esto según la estructura de tus datos
-                    newRow.appendChild(fechaColocacionCell);
-
-                    // Agrega la nueva fila al cuerpo de la tabla
-                    const vacunaTableBody = document.querySelector('container');
-                    vacunaTableBody.appendChild(newRow);
-                  }
-                  else {
-                    console.error("El campo 'vacuna' no es un array en la respuesta de la API.");
-                  }*/
-
-                  // Verifica si vacuna es un array antes de intentar iterar sobre él
-                  /*if (Array.isArray(data.info[0].vacuna)) {
-                    // Recorre el array de vacunas y agrega filas a la tabla
-                    data.info[0].vacuna.forEach(vacuna => {
-                      const newRow = document.createElement("tr");
-
-                      const vacunaCell = document.createElement("nombrevacuna");
-                      vacunaCell.textContent = vacuna.nombrevacuna; // Ajusta esto según la estructura de tus datos
-                      newRow.appendChild(vacunaCell);
-
-                      const fechaColocacionCell = document.createElement("fecha_creacion");
-                      fechaColocacionCell.textContent = vacuna.fecha_creacion; // Ajusta esto según la estructura de tus datos
-                      newRow.appendChild(fechaColocacionCell);
-
-                      // Agrega la nueva fila al cuerpo de la tabla
-                      vacunaTableBody.appendChild(newRow);
-                    });
+                  // Verifica si la respuesta contiene la URL de la imagen
+                  if (data.info[0].mascota.foto) {
+                    // Realiza una solicitud para obtener la imagen en formato base64
+                    return fetch(data.info[0].mascota.foto);
                   } else {
-                    console.error("El campo 'vacuna' no es un array en la respuesta de la API.");
-                  }*/
-
+                    throw new Error("La respuesta de la API no contiene la URL de la imagen.");
+                  }
                 } else {
-                  alert("Error al obtener los datos de la mascota.");
+                  throw new Error("Error al obtener los datos de la mascota.");
                 }
+              })
+              .then(response => {
+                if (!response.ok) {
+                  throw new Error(`Error al cargar la imagen: ${response.statusText}`);
+                }
+                return response.blob();
+              })
+              .then(blob => {
+                // Convierte el blob en una URL de datos
+                return URL.createObjectURL(blob);
+              })
+              .then(imageUrl => {
+                // Asigna la URL de la imagen al atributo src de la etiqueta img
+                document.getElementById("dog-image").src = imageUrl;
               })
               .catch(error => {
                 console.error("Error al obtener datos", error);
@@ -217,9 +188,10 @@
           } else {
             alert("Código de mascota no proporcionado en la URL.");
           }
-
         </script>
-
+      </div>
+    </section>
+  </main>
 
 </body>
 
