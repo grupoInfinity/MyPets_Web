@@ -146,9 +146,29 @@
                   // Obtén la referencia al cuerpo de la tabla
                   const vacuna = document.getElementById("vacuna");
 
-                  if (typeof data.info[0].vacuna === "object" && data.info[0].vacuna !== null) {
+                  var tbody = document.querySelector('.container tbody');
+
+                  if (data.info[0].vacuna && (Array.isArray(data.info[0].vacuna) || typeof data.info[0].vacuna === "object")) {
+                    // Si es un objeto, conviértelo en un array
+                    var vacunas = Array.isArray(data.info[0].vacuna) ? data.info[0].vacuna : [data.info[0].vacuna];
+
+                    // Itera sobre las vacunas
+                    vacunas.forEach(function (vacuna) {
+                      var newRow = tbody.insertRow();
+                      var vacunaCell = newRow.insertCell(0);
+                      var fechaColocCell = newRow.insertCell(1);
+
+                      vacunaCell.textContent = vacuna.nombrevacuna || "N/A";
+                      fechaColocCell.textContent = vacuna.fecha_creacion || "N/A";
+                    });
+                  } else {
+                    console.error("El campo 'vacuna' no es un array u objeto en la respuesta de la API.");
+                  }
+
+                  /*if (typeof data.info[0].vacuna === "object" && data.info[0].vacuna !== null) {
+                    console.log(data.info[0].vacuna.nombrevacuna);
                     // Accede a las propiedades del objeto 'vacuna'
-                    const newRow = document.createElement("tr");
+                    /*const newRow = document.createElement("tr");
 
                     const vacunaCell = document.createElement("td");
                     vacunaCell.textContent = data.info[0].vacuna[0].nombrevacuna; // Ajusta esto según la estructura de tus datos
@@ -164,7 +184,8 @@
                   }
                   else {
                     console.error("El campo 'vacuna' no es un array en la respuesta de la API.");
-                  }
+                  }*/
+
                   // Verifica si vacuna es un array antes de intentar iterar sobre él
                   /*if (Array.isArray(data.info[0].vacuna)) {
                     // Recorre el array de vacunas y agrega filas a la tabla
