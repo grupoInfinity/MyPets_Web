@@ -67,9 +67,7 @@
           // Verifica si la respuesta de la API es verdadera
           if (data.status === 1) {
             // Redirige a la página deseada (reemplaza "index1.html" con tu ruta)
-            console.log(data.info[0].mascota.nmasc);
-            redirigirConCodigoMascota(codigoMascota, data.info[0].mascota.nmasc, data.info[0].mascota.nacim, data.info[0].mascota.depto,
-             data.info[0].mascota.muni, data.info[0].mascota.direccion, data.info[0].mascota.telefono, data.info[0].mascota.mail);
+            redirigirConCodigoMascota(codigoMascota);
           } else {
             alert("El código de la mascota no fue encontrado.");
           }
@@ -79,10 +77,11 @@
         });
     }
 
-    function redirigirConCodigoMascota(codigoMascota, nombreMascota, fechanacimiento, Departamento, Municipio, direcciones, tel, mails) {
-      // Construye la URL de la otra página con el código de la mascota como parámetro
-      const url = `index1.html?codigoMascota=${encodeURIComponent(codigoMascota)}&nombreMascota=${encodeURIComponent(nombreMascota)}&fechanacimiento=${encodeURIComponent(fechanacimiento)}&Departamento=${encodeURIComponent(Departamento)}
-      &Municipio=${encodeURIComponent(Municipio)}&direcciones=${encodeURIComponent(direcciones)}&tel=${encodeURIComponent(tel)}&mails=${encodeURIComponent(mails)}`;
+    function redirigirConCodigoMascota(codigoMascota /*, nombreMascota, fechanacimiento, Departamento, Municipio, direcciones, tel, mails, vacuna*/) {
+      // Convierte el array de vacunas a cadena JSON
+      //const vacunasJSON = JSON.stringify(vacuna);
+      // Construye la URL de la otra página con el código de la mascota y las vacunas como parámetros
+      const url = `index1.html?codigoMascota=${encodeURIComponent(codigoMascota)}`;
 
       // Redirige a la otra página
       window.location.href = url;
