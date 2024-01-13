@@ -17,17 +17,13 @@ const encenderCamara = () => {
     .then(function (stream) {
       scanning = true;
       if (btnScanQR) btnScanQR.style.display = "none";
-      if (canvasElement) canvasElement.style.display = "block";
+      if (canvasElement) canvasElement.style.display = "block", canvasElement.style.width= "200px", canvasElement.style.position = "absolute", canvasElement.style.left= "66%", canvasElement.style.top= "38%";
       const canvas = canvasElement.getContext("2d");
       video.setAttribute("playsinline", true); // required to tell iOS Safari we don't want fullscreen
       video.srcObject = stream;
       video.play();
       tick();
       scan();
-      canvasElement.classList.add('active');
-
-  // Muestra la imagen cuando se enciende la cámara
-  document.querySelector('.QR').classList.add('active')
     });
 };
 
@@ -59,9 +55,6 @@ const cerrarCamara = () => {
   if (canvasElement) canvasElement.style.display = "none";
   if (btnScanQR) btnScanQR.style.display = "block";
   canvasElement.classList.add('active');
-
-  // Muestra la imagen cuando se enciende la cámara
-  document.querySelector('.QR').classList.add('active')
 };
 
 // callback cuando termina de leer el código QR

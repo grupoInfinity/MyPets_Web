@@ -404,10 +404,3 @@ button span:after {
   font-family: 'Exo', sans-serif;
   font-size: 10px;
 }
-
-#qr-canvas.active + .QR {
-  width: 10%; /* Ajusta según sea necesario */
-  height: auto;
-  display: block;
-  margin: auto;
-}
