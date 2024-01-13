@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MyPets</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -37,56 +36,22 @@
       </div>
     </form>
   </div>
-
-  <div class="wrap">
-    <button class="QR"> <img src="./QRIMG.png" class="img" /></button>
+  <div>
+    <a id="btnscan" href="#">
+      <img src="./QRIMG.png" class="QR" />
+    </a>
+    <canvas hidden="" id="qr-canvas" class="img-fluid"></canvas>
+    <div class="row mx-5 my-3">
+      <button class="btnEncender" onclick="encenderCamara()">Encender camara</button>
+      <button class="btnApagar" onclick="cerrarCamara()">Detener camara</button>
+    </div>
   </div>
 
-  <script>
-    function obtenerDatosYRedirigir() {
-      // Obtiene el valor del input con id="texto"
-      const codigoMascota = document.getElementById("texto").value;
-
-      // Verifica si el campo de texto está vacío
-      if (codigoMascota.trim() === "") {
-        alert("Por favor, ingresa el código de la mascota antes de continuar.");
-        return; // No realiza la solicitud si el campo está vacío
-      }
-
-      const apiUrl = "http://localhost/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&codigo=" + codigoMascota;
-
-      // Realiza la solicitud a la API utilizando fetch
-      fetch(apiUrl)
-        .then(response => {
-          if (!response.ok) {
-            throw new Error(`Error en la solicitud: ${response.statusText}`);
-          }
-          return response.json();
-        })
-        .then(data => {
-          // Verifica si la respuesta de la API es verdadera
-          if (data.status === 1) {
-            // Redirige a la página deseada (reemplaza "index1.html" con tu ruta)
-            redirigirConCodigoMascota(codigoMascota);
-          } else {
-            alert("El código de la mascota no fue encontrado.");
-          }
-        })
-        .catch(error => {
-          console.error("Error al obtener datos", error);
-        });
-    }
-
-    function redirigirConCodigoMascota(codigoMascota /*, nombreMascota, fechanacimiento, Departamento, Municipio, direcciones, tel, mails, vacuna*/) {
-      // Convierte el array de vacunas a cadena JSON
-      //const vacunasJSON = JSON.stringify(vacuna);
-      // Construye la URL de la otra página con el código de la mascota y las vacunas como parámetros
-      const url = `index1.html?codigoMascota=${encodeURIComponent(codigoMascota)}`;
-
-      // Redirige a la otra página
-      window.location.href = url;
-    }
-  </script>
+  <!-- Coloca tu script al final del cuerpo del documento -->
+  <script src="./QR.JS"></script>
+  <script src="./QrIndex.JS"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./Index.JS"></script>
 </body>
 
 </html>

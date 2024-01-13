@@ -228,18 +228,16 @@ header {
   right: -15px;
 }
 
-.wrap {
-  position: absolute;
-  top: 28%;
-  left: 60%;
-  transform: translate(-50%, -50%);
-}
 
 .QR {
   background-color: transparent;
   border: 0;
-  cursor: pointer;
-  position: relative;
+  position: absolute;
+  top: 35%;
+  width: 230px;
+  height: 230px;
+  top: 30%;
+  left: 65%;
 }
 
 .tb {
@@ -382,4 +380,34 @@ button span:after {
   right: -6px;
   width: 40px;
   background-color: #000000;
+}
+
+.btnEncender{
+  position: absolute;
+  left: 63%;
+  top: 65%;
+  height: 35px;
+  border-width: 0%;
+  border-radius: 5%;
+  background-color: #c5c3e6;
+  font-family: 'Exo', sans-serif;
+  font-size: 10px;
+}
+.btnApagar{
+  position: absolute;
+  left: 78%;
+  top: 65%;
+  height: 35px;
+  border-width: 0%;
+  border-radius: 5%;
+  background-color: #c5c3e6;
+  font-family: 'Exo', sans-serif;
+  font-size: 10px;
+}
+
+#qr-canvas.active + .QR {
+  width: 10%; /* Ajusta según sea necesario */
+  height: auto;
+  display: block;
+  margin: auto;
 }
