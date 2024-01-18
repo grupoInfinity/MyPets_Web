@@ -98,4 +98,3 @@ qrcode.callback = (respuesta) => {
 
 
 
-
