@@ -1,4 +1,3 @@
-// Código JavaScript combinado
 
 // crea elemento
 const video = document.createElement("video");
