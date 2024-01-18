@@ -72,6 +72,38 @@ window.addEventListener('load', (e) => {
 
 qrcode.callback = (respuesta) => {
   if (respuesta) {
+    // Obtén el código de la mascota desde la respuesta del código QR
+    const codigoMascota = respuesta;
+
+    // Realiza una solicitud a tu API para verificar si el código de la mascota existe
+    const apiUrl =
+      "http://localhost/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&codigo=" + codigoMascota;
+
+    fetch(apiUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Error en la solicitud: ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        // Verifica si la respuesta de la API es verdadera
+        if (data.status === 1) {
+          // Redirige a la siguiente página con el código de la mascota como parámetro
+          window.location.href = `index1.html?codigoMascota=${encodeURIComponent(codigoMascota)}`;
+        } else {
+          // Si el código de la mascota no existe, muestra un mensaje de error
+          Swal.fire("Código de mascota no válido.");
+        }
+      })
+      .catch(error => {
+        console.error("Error al verificar el código de la mascota:", error);
+      });
+  }
+};
+
+qrcode.callback = (respuesta) => {
+  if (respuesta) {
     // Aquí deberías realizar una solicitud a tu API para verificar si el código de mascota existe
     const apiUrl = "http://localhost/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&codigo=" + respuesta;
 
