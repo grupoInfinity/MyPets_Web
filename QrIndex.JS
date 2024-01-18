@@ -91,7 +91,7 @@ qrcode.callback = (respuesta) => {
         }else {
           console.log("Código de mascota no válido.");
           Swal.fire("Error", "Código de mascota no encontrado", "error");
-          cerrarCamara();
+          encenderCamara();
         }
       })
       .catch(error => {
