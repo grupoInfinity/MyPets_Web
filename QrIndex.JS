@@ -1,14 +1,13 @@
+// Código JavaScript combinado
+
 // crea elemento
 const video = document.createElement("video");
 
 // nuestro canvas
 let canvasElement = document.getElementById("qr-canvas");
 
-// lectura desactivada
-let scanning = false;
-
-// referencia al botón de escaneo
-const btnScanQR = document.getElementById("btnscan");
+// referencia a la imagen de fondo
+const fondoElement = document.getElementById("fondo-imagen");
 
 // función para encender la cámara
 const encenderCamara = () => {
@@ -16,8 +15,16 @@ const encenderCamara = () => {
     .getUserMedia({ video: { facingMode: "environment" } })
     .then(function (stream) {
       scanning = true;
-      if (btnScanQR) btnScanQR.style.display = "none";
-      if (canvasElement) canvasElement.style.display = "block", canvasElement.style.width= "200px", canvasElement.style.position = "absolute", canvasElement.style.left= "66%", canvasElement.style.top= "38%";
+      if (canvasElement) {
+        canvasElement.style.display = "block";
+        canvasElement.style.width = "220px";
+        canvasElement.style.position = "absolute";
+        canvasElement.style.left = "66%";
+        canvasElement.style.top = "36%";
+      }
+      if (fondoElement) {
+        fondoElement.style.display = "none"; // Oculta la imagen de fondo
+      }
       const canvas = canvasElement.getContext("2d");
       video.setAttribute("playsinline", true); // required to tell iOS Safari we don't want fullscreen
       video.srcObject = stream;
@@ -43,6 +50,7 @@ function scan() {
   try {
     qrcode.decode();
   } catch (e) {
+    // Si hay un error al decodificar, simplemente vuelve a llamar a la función de escaneo después de un breve intervalo
     setTimeout(scan, 300);
   }
 }
@@ -53,25 +61,14 @@ const cerrarCamara = () => {
     track.stop();
   });
   if (canvasElement) canvasElement.style.display = "none";
-  if (btnScanQR) btnScanQR.style.display = "block";
-  canvasElement.classList.add('active');
+  if (fondoElement) {
+    fondoElement.style.display = "block"; // Muestra la imagen de fondo
+  }
+  encenderCamara(); // Vuelve a encender la cámara automáticamente después de apagarla
 };
 
 // callback cuando termina de leer el código QR
 qrcode.callback = (respuesta) => {
-  if (respuesta) {
-    Swal.fire(respuesta);
-    cerrarCamara();
-  }
-};
-
-// evento para mostrar la cámara sin el botón
-window.addEventListener('load', (e) => {
-  encenderCamara();
-});
-
-qrcode.callback = (respuesta) => {
-  console.log(respuesta);
   if (respuesta) {
     // Obtén el código de la mascota desde la respuesta del código QR
     const codigoMascota = respuesta;
@@ -92,9 +89,10 @@ qrcode.callback = (respuesta) => {
         if (data.status === 1) {
           // Redirige a la siguiente página con el código de la mascota como parámetro
           window.location.href = `index1.html?codigoMascota=${encodeURIComponent(codigoMascota)}`;
-        } else {
-          // Si el código de la mascota no existe, muestra un mensaje de error
-          Swal.fire("Código de mascota no válido.");
+        }else {
+          console.log("Código de mascota no válido.");
+          Swal.fire("Error", "Código de mascota no encontrado", "error");
+          cerrarCamara();
         }
       })
       .catch(error => {
@@ -103,6 +101,7 @@ qrcode.callback = (respuesta) => {
   }
 };
 
-
-
-
+// evento para mostrar la cámara
+window.addEventListener('load', (e) => {
+  encenderCamara();
+});
