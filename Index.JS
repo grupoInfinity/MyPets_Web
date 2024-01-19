@@ -4,7 +4,7 @@ function obtenerDatosYRedirigir() {
 
     // Verifica si el campo de texto está vacío
     if (codigoMascota.trim() === "") {
-      alert("Por favor, ingresa el código de la mascota antes de continuar.");
+      Swal.fire("Error","Por favor, ingresa el código de la mascota antes de continuar.", "error");
       return; // No realiza la solicitud si el campo está vacío
     }
 
@@ -24,7 +24,7 @@ function obtenerDatosYRedirigir() {
           // Redirige a la página deseada
           redirigirConCodigoMascota(codigoMascota);
         } else {
-          alert("El código de la mascota no fue encontrado.");
+          Swal.fire("Error", "Código de mascota no encontrado", "error");
         }
       })
       .catch(error => {

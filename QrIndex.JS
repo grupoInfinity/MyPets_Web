@@ -1,4 +1,3 @@
-
 // crea elemento
 const video = document.createElement("video");
 
