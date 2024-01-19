@@ -36,6 +36,7 @@ function getParameterByName(name, url) {
           const direcciones = data.info[0].mascota.direccion;
           const tel = data.info[0].mascota.telefono;
           const mails = data.info[0].mascota.mail;
+          const estadoDireccion = data.info[0].mascota.estadodir;
 
           // Actualiza el contenido de tu página con el nombre de la mascota u otros datos necesarios
           document.getElementById("Nom").innerText = nombreMascota;
@@ -46,6 +47,15 @@ function getParameterByName(name, url) {
           document.getElementById("Direc").innerText = direcciones;
           document.getElementById("Contc").innerText = tel;
           document.getElementById("Ema").innerText = mails;
+
+          const direccionElement = document.getElementById("Direc");
+
+          if (estadoDireccion === "I") {
+            direccionElement.textContent = "Mascota Inactiva";
+          } else {
+            // Si no es "I", muestra la dirección normalmente
+            direccionElement.textContent = direcciones;
+          }
 
           // Obtén la referencia al cuerpo de la tabla
           const tbody = document.querySelector('.container tbody');
