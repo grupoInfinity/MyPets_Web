@@ -51,7 +51,7 @@ function getParameterByName(name, url) {
           const direccionElement = document.getElementById("Direc");
 
           if (estadoDireccion === "I") {
-            direccionElement.textContent = "Mascota Inactiva";
+            direccionElement.textContent = "Pendiente";
           } else {
             // Si no es "I", muestra la dirección normalmente
             direccionElement.textContent = direcciones;
