@@ -62,7 +62,7 @@ const cerrarCamara = () => {
   if (fondoElement) {
     fondoElement.style.display = "block"; // Muestra la imagen de fondo
   }
-  encenderCamara(); // Vuelve a encender la cámara automáticamente después de apagarla
+  //encenderCamara(); // Vuelve a encender la cámara automáticamente después de apagarla
 };
 
 // callback cuando termina de leer el código QR
@@ -73,7 +73,7 @@ qrcode.callback = (respuesta) => {
 
     // Realiza una solicitud a tu API para verificar si el código de la mascota existe
     const apiUrl =
-      "http://localhost/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&codigo=" + codigoMascota;
+      "http://localhost/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&estado=A&codigo=" + codigoMascota;
 
     fetch(apiUrl)
       .then(response => {
@@ -89,7 +89,7 @@ qrcode.callback = (respuesta) => {
           window.location.href = `index1.html?codigoMascota=${encodeURIComponent(codigoMascota)}`;
         }else {
           console.log("Código de mascota no válido.");
-          Swal.fire("Error", "Código de mascota no encontrado", "error");
+          Swal.fire("Error", "Código de mascota no valido o inactivo", "error");
           encenderCamara();
         }
       })

@@ -18,6 +18,8 @@ function getParameterByName(name, url) {
     const apiUrl =
       "http://localhost/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&codigo=" + codigoMascota;
 
+      console.log(apiUrl);
+
     fetch(apiUrl)
       .then(response => {
         if (!response.ok) {

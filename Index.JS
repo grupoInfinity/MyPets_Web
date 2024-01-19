@@ -8,7 +8,7 @@ function obtenerDatosYRedirigir() {
       return; // No realiza la solicitud si el campo está vacío
     }
 
-    const apiUrl = "http://localhost/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&codigo=" + codigoMascota;
+    const apiUrl = "http://localhost/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&estado=A&codigo=" + codigoMascota;
 
     // Realiza la solicitud a la API utilizando fetch
     fetch(apiUrl)
@@ -24,7 +24,7 @@ function obtenerDatosYRedirigir() {
           // Redirige a la página deseada
           redirigirConCodigoMascota(codigoMascota);
         } else {
-          Swal.fire("Error", "Código de mascota no encontrado", "error");
+          Swal.fire("Error", "Código de mascota no valido o inactivo", "error");
         }
       })
       .catch(error => {
