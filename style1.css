@@ -83,7 +83,7 @@ h6 {
 }
 
 
-@media (min-width: 375px) {
+@media (min-width: 768px) {
   .well-cta--form {
     grid-template-columns: 1fr auto;
   }
@@ -105,7 +105,7 @@ h6 {
 }
 
 
-@media (min-width: 375px) {
+@media (min-width: 768px) {
   .logo .text {
     display: block;
     margin-top: -15px;
@@ -209,7 +209,7 @@ nav {
 }
 
 
-@media (min-width: 375px) {
+@media (min-width: 768px) {
   .dog-info {
     display: grid;
     grid-template-columns: 40% 1fr;
@@ -336,7 +336,73 @@ body main {
   transition-timing-function: line;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 800px) {
 .container td:nth-child(4),
 .container th:nth-child(4) { display: none; }
+}
+
+
+@media (max-width: 375px) {
+  body {
+    grid-template-columns: 1fr;
+  }
+
+  .dog-info {
+    grid-template-columns: 1fr;
+  }
+
+  .dog-gallery {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    grid-gap: 10px;
+  }
+  
+
+  /* Otras reglas de estilo específicas para pantallas de 375px */
+  main {
+    font-size: 14px;
+  }
+  
+  .container {
+    width: 100%; /* Hace que el contenedor ocupe todo el ancho en pantallas pequeñas */
+  }
+
+  .container td,
+  .container th {
+    padding-left: 1%; /* Espaciado izquierdo reducido para ajustar el contenido en pantallas pequeñas */
+    padding-right: 1%; /* Espaciado derecho reducido para ajustar el contenido en pantallas pequeñas */
+  }
+
+  @media (max-width: 375px) {
+    body {
+      font-size: 14px; /* Reduce el tamaño de fuente general */
+    }
+
+    .logo .text {
+      font-size: 24px; /* Reduce el tamaño de fuente del logo en pantallas pequeñas */
+    }
+
+    .dog-name__info h1 {
+      font-size: 24px; /* Reduce el tamaño de fuente del nombre del perro en pantallas pequeñas */
+    }
+
+    .dog-gallery__images {
+      height: 250px; /* Ajusta la altura de la galería de imágenes en pantallas pequeñas */
+    }
+
+    .dog-manythings__stats p {
+      font-size: 14px; /* Reduce el tamaño de fuente de las estadísticas en pantallas pequeñas */
+    }
+
+    .dog-manythings__stats h5 {
+      font-size: 18px; /* Ajusta el tamaño de fuente de los valores en pantallas pequeñas */
+    }
+
+    .dog-manythings__more h3 {
+      font-size: 20px; /* Ajusta el tamaño de fuente de los títulos en pantallas pequeñas */
+    }
+
+    table.container {
+      font-size: 14px; /* Reduce el tamaño de fuente de la tabla en pantallas pequeñas */
+    }
+  }
 }
