@@ -13,9 +13,11 @@ body {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -29,142 +31,160 @@ body {
 }
 
 @keyframes pressDown {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(10px);
   }
 }
-  
-  
-  @keyframes pressDown1 {
-    30%,
-    40%,
-    100% {
-      transform: translateY(0);
-    }
-    35% {
-      transform: translateY(10px);
-    }
-  }
-  
-  @keyframes pressDown2 {
-    70%,
-    80%,
-    100% {
-      transform: translateY(0);
-    }
-    75% {
-      transform: translateY(10px);
-    }
-  }
-  
-  @keyframes pressDown3 {
-    30%,
-    40%,
-    100% {
-      transform: translateY(0);
-    }
-    35% {
-      transform: translateY(10px);
-    }
-  }
-  
-  @keyframes pressDown4 {
-    40%,
-    50%,
-    100% {
-      transform: translateY(0);
-    }
-    45% {
-      transform: translateY(10px);
-    }
-  }
-  
-  @keyframes pressDown5 {
-    20%,
-    30%,
-    100% {
-      transform: translateY(0);
-    }
-    25% {
-      transform: translateY(10px);
-    }
-  }
-  
-  @keyframes pressDown6 {
-    60%,
-    70%,
-    100% {
-      transform: translateY(0);
-    }
-    65% {
-      transform: translateY(10px);
-    }
-  }
-  
-  @keyframes pressDown7 {
-    10%,
-    20%,
-    100% {
-      transform: translateY(0);
-    }
-    15% {
-      transform: translateY(10px);
-    }
-  }
-  
-  @keyframes pressDown8 {
-    35%,
-    45%,
-    100% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(10px);
-    }
-  }
-  
-  .key:nth-child(1) {
-    animation: pressDown 2s infinite;
-    color: #fff;
-  }
-  
-  .key:nth-child(2) {
-    animation: pressDown 3s infinite;
-    color: #fff;
-  }
-  
-  .key:nth-child(3) {
-    animation: pressDown 4s infinite;
-    color: #fff;
-  }
-  
-  .key:nth-child(4) {
-    animation: pressDown 2.5s infinite;
-    color: #fff;
-  }
-  
-  .key:nth-child(5) {
-    animation: pressDown 2.5s infinite;
-    color: #fff;
-  }
-  
-  .key:nth-child(6) {
-    animation: pressDown 3.5s infinite;
-    color: #fff;
+
+
+@keyframes pressDown1 {
+
+  30%,
+  40%,
+  100% {
+    transform: translateY(0);
   }
 
-  .img {
-    height: 380%;
-    width: 380%;
+  35% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes pressDown2 {
+
+  70%,
+  80%,
+  100% {
+    transform: translateY(0);
   }
 
-*{
-    margin: 0px;
-    padding: 0px;
+  75% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes pressDown3 {
+
+  30%,
+  40%,
+  100% {
+    transform: translateY(0);
+  }
+
+  35% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes pressDown4 {
+
+  40%,
+  50%,
+  100% {
+    transform: translateY(0);
+  }
+
+  45% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes pressDown5 {
+
+  20%,
+  30%,
+  100% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes pressDown6 {
+
+  60%,
+  70%,
+  100% {
+    transform: translateY(0);
+  }
+
+  65% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes pressDown7 {
+
+  10%,
+  20%,
+  100% {
+    transform: translateY(0);
+  }
+
+  15% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes pressDown8 {
+
+  35%,
+  45%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(10px);
+  }
+}
+
+.key:nth-child(1) {
+  animation: pressDown 2s infinite;
+  color: #fff;
+}
+
+.key:nth-child(2) {
+  animation: pressDown 3s infinite;
+  color: #fff;
+}
+
+.key:nth-child(3) {
+  animation: pressDown 4s infinite;
+  color: #fff;
+}
+
+.key:nth-child(4) {
+  animation: pressDown 2.5s infinite;
+  color: #fff;
+}
+
+.key:nth-child(5) {
+  animation: pressDown 2.5s infinite;
+  color: #fff;
+}
+
+.key:nth-child(6) {
+  animation: pressDown 3.5s infinite;
+  color: #fff;
+}
+
+.img {
+  height: 380%;
+  width: 380%;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
 }
 
 
@@ -182,12 +202,12 @@ body {
 
 
 
-  .QR {
-    transform: translateX(-50%);
-    position: absolute;
-    left: 20%;
-    top: 10%;
-  }
+.QR {
+  transform: translateX(-50%);
+  position: absolute;
+  left: 20%;
+  top: 10%;
+}
 
 
 header {
@@ -257,7 +277,7 @@ input[type="text"] {
   height: 50%;
   font-size: 20px;
   line-height: 1;
-  position :absolute;
+  position: absolute;
   top: 30%;
   left: 2%;
   font-family: 'Exo', sans-serif;
@@ -349,6 +369,7 @@ button span:after {
   bottom: -11px;
   transform: rotateZ(-52deg);
 }
+
 #s-cover:hover button span:before,
 #s-cover:hover button span:after {
   right: -6px;
@@ -356,7 +377,7 @@ button span:after {
   background-color: #000000;
 }
 
-.btnEncender{
+.btnEncender {
   position: absolute;
   left: 63%;
   top: 65%;
@@ -367,9 +388,10 @@ button span:after {
   font-family: 'Exo', sans-serif;
   font-size: 10px;
 }
-.btnApagar{
+
+.btnApagar {
   position: absolute;
-  left: 78%;
+  left: 79%;
   top: 65%;
   height: 35px;
   border-width: 0%;
@@ -408,7 +430,7 @@ button span:after {
     height: 10px;
   }
 
-  #s-circle{
+  #s-circle {
     top: 10px;
     position: absolute;
     left: 44px;
@@ -420,7 +442,7 @@ button span:after {
     height: 30px;
   }
 
-  
+
 
   #s-cover:hover {
     top: 15px;
@@ -471,17 +493,63 @@ button span:after {
     height: 30px;
     width: 68px;
     font-size: 8px;
-    left: 68%;
+    left: 69%;
     transform: translateX(-50%);
     top: 83%;
   }
 
-  .btnEncender{
+  .btnEncender {
     height: 30px;
     width: 68px;
     font-size: 8px;
-    left: 32%;
+    left: 31%;
     transform: translateX(-50%);
     top: 83%;
   }
+
+  :root {
+    --swal-width: 300px; /* Ancho personalizado */
+    --swal-padding: 8px; /* Relleno personalizado */
+      --swal-font-size: 14px; /* Tamaño de fuente personalizado */
+  }
+
+  .swal2-popup {
+    width: var(--swal-width);
+    font-size: var(--swal-font-size);
+  }
+
+  .swal2-title,
+  .swal2-content {
+    padding: var(--swal-padding);
+  }
+
+  .swal2-confirm {
+    font-size: 18px !important; /* Tamaño de fuente deseado */
+    padding: 20px 40px !important; /* Ajusta el relleno según tus necesidades */
+    text-align:center;
+  }
+}
+
+#qr-canvas {
+  width: 250px;
+  position: absolute;
+  left: 74%;
+  top: 47%;
+  transform: translate(-50%, -50%);
+  display: none; /* Por defecto, ocultar el canvas */
+}
+
+@media only screen and (max-width: 375px) {
+  /* Estilos específicos para pantallas con ancho igual o menor a 375px (típicamente, teléfonos) */
+  #qr-canvas {
+    width: 180px;
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+#fondo-imagen {
+  display: block; /* Asegurarse de que la imagen de fondo esté visible por defecto */
 }

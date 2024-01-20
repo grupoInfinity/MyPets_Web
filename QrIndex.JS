@@ -7,24 +7,34 @@ let canvasElement = document.getElementById("qr-canvas");
 // referencia a la imagen de fondo
 const fondoElement = document.getElementById("fondo-imagen");
 
-// función para encender la cámara
 const encenderCamara = () => {
   navigator.mediaDevices
     .getUserMedia({ video: { facingMode: "environment" } })
     .then(function (stream) {
       scanning = true;
       if (canvasElement) {
+        if (window.innerWidth <= 375) {
+          // Tamaño y posición específicos para teléfonos con ancho igual o menor a 375px
+          canvasElement.style.width = "";
+          canvasElement.style.position = "absolute";
+          canvasElement.style.left = "";
+          canvasElement.style.top = "";
+          canvasElement.style.transform = "translate(-50%, -50%)";
+        } else {
+          // Tamaño y posición para pantallas más grandes (PC, tablets, etc.)
+          canvasElement.style.width = "";
+          canvasElement.style.position = "absolute";
+          canvasElement.style.left = "";
+          canvasElement.style.top = "";
+          canvasElement.style.transform = "translate(-50%, -50%)";
+        }
         canvasElement.style.display = "block";
-        canvasElement.style.width = "220px";
-        canvasElement.style.position = "absolute";
-        canvasElement.style.left = "66%";
-        canvasElement.style.top = "36%";
       }
       if (fondoElement) {
-        fondoElement.style.display = "none"; // Oculta la imagen de fondo
+        fondoElement.style.display = "none";
       }
       const canvas = canvasElement.getContext("2d");
-      video.setAttribute("playsinline", true); // required to tell iOS Safari we don't want fullscreen
+      video.setAttribute("playsinline", true);
       video.srcObject = stream;
       video.play();
       tick();
@@ -103,3 +113,5 @@ qrcode.callback = (respuesta) => {
 window.addEventListener('load', (e) => {
   encenderCamara();
 });
+
+
