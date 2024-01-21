@@ -17,7 +17,7 @@ function obtenerDatosYRedirigir() {
   style.innerHTML = ".small-swal-btn { padding: 0.2em 1em; font-size: 0.8em; }";
   document.head.appendChild(style);
 
-  const apiUrl = "http://localhost/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&estado=A&codigo=" + codigoMascota;
+  const apiUrl = "http://192.168.1.22/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&estado=A&codigo=" + codigoMascota;
 
   // Realiza la solicitud a la API utilizando fetch
   fetch(apiUrl)

@@ -401,6 +401,171 @@ button span:after {
   font-size: 10px;
 }
 
+@media only screen and (max-width: 600px) {
+  /* Estilos específicos para pantallas pequeñas */
+  .QR {
+    width: 100%;
+    max-width: 50%;
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 60%;
+  }
+
+  button span {
+    top: 25px;
+    position: absolute;
+    left: 68px;
+    display: block;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    transform: rotateZ(52deg);
+    transition: 0.5s ease all;
+  }
+
+  button span:before,
+  button span:after {
+    width: 30px;
+    height: 10px;
+  }
+
+  #s-circle {
+    top: 10px;
+    position: absolute;
+    left: 44px;
+    border-width: 6px;
+    border-left: 5px solid black;
+    border-right: 5px solid black;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+  }
+
+
+
+  #s-cover:hover #s-circle {
+    top: 30px;
+    position: absolute;
+    left: 60px;
+    width: 67px;
+    height: 15px;
+    border-width: 0;
+    background-color: #000000;
+    border-radius: 20px;
+  }
+
+  #s-cover:hover span {
+    top: 22px;
+    position: absolute;
+    left: 114px;
+    width: 25px;
+    margin-top: -9px;
+    transform: rotateZ(0);
+  }
+
+  #s-cover:hover button span:before {
+    bottom: 11px;
+    transform: rotateZ(52deg);
+  }
+  
+  #s-cover:hover button span:after {
+    bottom: -11px;
+    transform: rotateZ(-52deg);
+  }
+  
+  #s-cover:hover button span:before,
+  #s-cover:hover button span:after {
+    right: -6px;
+    width: 40px;
+    background-color: #000000;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    font-size: 14px;
+    top: 28%;
+    left: 5%;
+  }
+
+  #cover {
+    width: 100%;
+    height: 9%;
+    left: -5%;
+    top: 35%;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    font-size: 14px;
+    top: 28%;
+    left: 5%;
+  }
+
+  button {
+    width: 10px;
+    height: 10px;
+  }
+
+  .btnApagar {
+    height: 30px;
+    width: 68px;
+    font-size: 8px;
+    left: 69%;
+    transform: translateX(-50%);
+    top: 83%;
+  }
+
+  .btnEncender {
+    height: 30px;
+    width: 68px;
+    font-size: 8px;
+    left: 31%;
+    transform: translateX(-50%);
+    top: 83%;
+  }
+
+  :root {
+    --swal-width: 300px;
+    /* Ancho personalizado */
+    --swal-padding: 8px;
+    /* Relleno personalizado */
+    --swal-font-size: 14px;
+    /* Tamaño de fuente personalizado */
+  }
+
+  .swal2-popup {
+    width: var(--swal-width);
+    font-size: var(--swal-font-size);
+  }
+
+  .swal2-title,
+  .swal2-content {
+    padding: var(--swal-padding);
+  }
+
+  .swal2-confirm {
+    font-size: 18px !important;
+    /* Tamaño de fuente deseado */
+    padding: 20px 40px !important;
+    /* Ajusta el relleno según tus necesidades */
+    text-align: center;
+  }
+
+  #qr-canvas {
+    width: 180px;
+    position: absolute;
+    left: 30%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+#fondo-imagen {
+  display: block;
+  /* Asegurarse de que la imagen de fondo esté visible por defecto */
+}
+
 /* Estilos específicos para pantallas de hasta 375px */
 @media only screen and (max-width: 375px) {
   .QR {
@@ -508,9 +673,12 @@ button span:after {
   }
 
   :root {
-    --swal-width: 300px; /* Ancho personalizado */
-    --swal-padding: 8px; /* Relleno personalizado */
-      --swal-font-size: 14px; /* Tamaño de fuente personalizado */
+    --swal-width: 300px;
+    /* Ancho personalizado */
+    --swal-padding: 8px;
+    /* Relleno personalizado */
+    --swal-font-size: 14px;
+    /* Tamaño de fuente personalizado */
   }
 
   .swal2-popup {
@@ -524,9 +692,11 @@ button span:after {
   }
 
   .swal2-confirm {
-    font-size: 18px !important; /* Tamaño de fuente deseado */
-    padding: 20px 40px !important; /* Ajusta el relleno según tus necesidades */
-    text-align:center;
+    font-size: 18px !important;
+    /* Tamaño de fuente deseado */
+    padding: 20px 40px !important;
+    /* Ajusta el relleno según tus necesidades */
+    text-align: center;
   }
 }
 
@@ -536,10 +706,12 @@ button span:after {
   left: 74%;
   top: 47%;
   transform: translate(-50%, -50%);
-  display: none; /* Por defecto, ocultar el canvas */
+  display: none;
+  /* Por defecto, ocultar el canvas */
 }
 
 @media only screen and (max-width: 375px) {
+
   /* Estilos específicos para pantallas con ancho igual o menor a 375px (típicamente, teléfonos) */
   #qr-canvas {
     width: 180px;
@@ -551,5 +723,6 @@ button span:after {
 }
 
 #fondo-imagen {
-  display: block; /* Asegurarse de que la imagen de fondo esté visible por defecto */
+  display: block;
+  /* Asegurarse de que la imagen de fondo esté visible por defecto */
 }

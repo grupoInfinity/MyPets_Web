@@ -8,37 +8,52 @@ let canvasElement = document.getElementById("qr-canvas");
 const fondoElement = document.getElementById("fondo-imagen");
 
 const encenderCamara = () => {
-  navigator.mediaDevices
-    .getUserMedia({ video: { facingMode: "environment" } })
+  console.log("Intentando encender la cámara...");
+
+  // Solicitar permisos para acceder a la cámara
+  navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
     .then(function (stream) {
+      console.log("Cámara activada correctamente");
       scanning = true;
+
+      // Guardar el stream en la variable para poder detenerlo más tarde
+      mediaStream = stream;
+
       if (canvasElement) {
+        const canvas = canvasElement.getContext("2d");
+        canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+
         if (window.innerWidth <= 375) {
-          // Tamaño y posición específicos para teléfonos con ancho igual o menor a 375px
           canvasElement.style.width = "";
           canvasElement.style.position = "absolute";
           canvasElement.style.left = "";
           canvasElement.style.top = "";
           canvasElement.style.transform = "translate(-50%, -50%)";
         } else {
-          // Tamaño y posición para pantallas más grandes (PC, tablets, etc.)
           canvasElement.style.width = "";
           canvasElement.style.position = "absolute";
           canvasElement.style.left = "";
           canvasElement.style.top = "";
           canvasElement.style.transform = "translate(-50%, -50%)";
         }
+
         canvasElement.style.display = "block";
       }
+
       if (fondoElement) {
         fondoElement.style.display = "none";
       }
-      const canvas = canvasElement.getContext("2d");
-      video.setAttribute("playsinline", true);
+
+      // Configurar el video con el stream
       video.srcObject = stream;
+      video.setAttribute("playsinline", true);
       video.play();
+
       tick();
       scan();
+    })
+    .catch(error => {
+      console.error("Error al intentar encender la cámara:", error);
     });
 };
 
@@ -109,9 +124,10 @@ qrcode.callback = (respuesta) => {
   }
 };
 
-// evento para mostrar la cámara
 window.addEventListener('load', (e) => {
-  encenderCamara();
+  console.log("Página cargada, esperando evento táctil para encender la cámara...");
+  // Encender la cámara cuando se toque en algún lugar de la pantalla
+  document.body.addEventListener('click', clicEncenderCamara, { once: true });
 });
 
 
