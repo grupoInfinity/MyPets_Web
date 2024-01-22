@@ -553,11 +553,13 @@ button span:after {
   }
 
   #qr-canvas {
-    width: 180px;
+    width: 250px;
     position: absolute;
-    left: 30%;
-    top: 90%;
+    left: 74%;
+    top: 47%;
     transform: translate(-50%, -50%);
+    display: none;
+    /* Por defecto, ocultar el canvas */
   }
 }
 
