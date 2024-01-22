@@ -98,7 +98,7 @@ qrcode.callback = (respuesta) => {
 
     // Realiza una solicitud a tu API para verificar si el código de la mascota existe
     const apiUrl =
-      "http://localhost/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&estado=A&codigo=" + codigoMascota;
+      "https://ginfinity.xyz/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&estado=A&codigo=" + codigoMascota;
 
     fetch(apiUrl)
       .then(response => {

@@ -16,7 +16,7 @@ function getParameterByName(name, url) {
   if (codigoMascota) {
     // Realiza una solicitud a tu API para obtener los datos de la mascota
     const apiUrl =
-      "http://192.168.1.22/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&estado=A&codigo=" + codigoMascota;
+      "https://ginfinity.xyz/MyPets_Admin/servicios/prc/prc_mascota.php?accion=C&estado=A&codigo=" + codigoMascota;
 
       console.log(apiUrl);
 
