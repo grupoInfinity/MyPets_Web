@@ -14,22 +14,11 @@ const encenderCamara = () => {
     .then(function (stream) {
       scanning = true;
       if (canvasElement) {
-        if (window.innerWidth <= 375) {
-          // Tamaño y posición específicos para teléfonos con ancho igual o menor a 375px
-          canvasElement.style.width = "";
-          canvasElement.style.position = "absolute";
-          canvasElement.style.left = "";
-          canvasElement.style.top = "";
-          canvasElement.style.transform = "translate(-50%, -50%)";
+        if (window.innerWidth ) {
+          canvasElement.style.display = "block";
         } else {
-          // Tamaño y posición para pantallas más grandes (PC, tablets, etc.)
-          canvasElement.style.width = "";
-          canvasElement.style.position = "absolute";
-          canvasElement.style.left = "";
-          canvasElement.style.top = "";
-          canvasElement.style.transform = "translate(-50%, -50%)";
+          canvasElement.style.display = "block";
         }
-        canvasElement.style.display = "block";
       }
       if (fondoElement) {
         fondoElement.style.display = "none";

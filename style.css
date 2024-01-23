@@ -551,16 +551,6 @@ button span:after {
     /* Ajusta el relleno según tus necesidades */
     text-align: center;
   }
-
-  #qr-canvas {
-    width: 250px;
-    position: absolute;
-    left: 74%;
-    top: 47%;
-    transform: translate(-50%, -50%);
-    display: none;
-    /* Por defecto, ocultar el canvas */
-  }
 }
 
 #fondo-imagen {
@@ -722,6 +712,26 @@ button span:after {
     top: 70%;
     transform: translate(-50%, -50%);
   }
+}
+
+#fondo-imagen {
+  display: block;
+  /* Asegurarse de que la imagen de fondo esté visible por defecto */
+}
+
+@media only screen and (max-width: 600px) {
+
+  /* Estilos específicos para pantallas con ancho igual o menor a 375px (típicamente, teléfonos) */
+  #qr-canvas {
+    width: 45vw; /* Utilizamos el ancho relativo al ancho de la ventana */
+    max-width: 200px; /* Ajusta según sea necesario */
+    position: fixed;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+  }
+
 }
 
 #fondo-imagen {
