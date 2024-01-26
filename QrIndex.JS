@@ -14,7 +14,7 @@ const encenderCamara = () => {
     .then(function (stream) {
       scanning = true;
       if (canvasElement) {
-        if (window.innerWidth ) {
+        if (window.innerWidth) {
           canvasElement.style.display = "block";
         } else {
           canvasElement.style.display = "block";

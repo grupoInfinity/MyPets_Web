@@ -652,7 +652,7 @@ button span:after {
     font-size: 8px;
     left: 69%;
     transform: translateX(-50%);
-    top: 83%;
+    top: 90%;
   }
 
   .btnEncender {
@@ -661,7 +661,7 @@ button span:after {
     font-size: 8px;
     left: 31%;
     transform: translateX(-50%);
-    top: 83%;
+    top: 90%;
   }
 
   :root {
